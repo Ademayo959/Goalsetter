@@ -1,10 +1,21 @@
 const express = require("express")
 router = express.Router()
+const {
+    getGoals,
+    setGoals,
+    updateGoals,
+    deleteGoals,
+} = require('../controllers/goalController')
 
 
-router.get('/api/goals', (req, res) => {
-    res.status(200).json({ message: 'Get goals' })
-})
+router.get('/', getGoals)
+
+router.post('/', setGoals)
+
+router.put('/:id', updateGoals)
+
+router.delete('/:id', deleteGoals)
+
 
 
 module.exports = router
